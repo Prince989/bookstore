@@ -10,6 +10,27 @@
       "StackName": "amplify-books-dev-193305",
       "StackId": "arn:aws:cloudformation:eu-north-1:854857063159:stack/amplify-books-dev-193305/84cbf010-e2e5-11ee-acd2-0a6f6d943991",
       "AmplifyAppId": "d1g8unqxu0xh0t"
+    },
+    "categories": {
+      "function": {
+        "BookInventoryHandler": {
+          "deploymentBucketName": "amplify-books-dev-193305-deployment",
+          "s3Key": "amplify-builds/BookInventoryHandler-35303957653567346b39-build.zip"
+        }
+      },
+      "api": {
+        "booklambdaapi": {}
+      },
+      "storage": {
+        "user": {
+          "tableName": "user",
+          "region": "eu-north-1",
+          "arn": "arn:aws:dynamodb:eu-north-1:854857063159:table/user",
+          "partitionKeyName": "id",
+          "partitionKeyType": "N"
+        },
+        "books": {}
+      }
     }
   }
 }

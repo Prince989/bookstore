@@ -1,0 +1,11 @@
+{
+  "httpMethod": "POST",
+  "path": "/books",
+  "queryStringParameters": {
+    "limit": "10"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"title\":\"Hello\", \"author\" : \"from the event.json body\", \"quantity\" : 10}"
+}

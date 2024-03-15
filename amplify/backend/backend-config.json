@@ -1,1 +1,109 @@
-{}
+{
+  "api": {
+    "booklambdaapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "BookInventoryHandler"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "BookInventoryHandler": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "books"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_BookInventoryHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BookInventoryHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_BookInventoryHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BookInventoryHandler"
+        }
+      ]
+    },
+    "AMPLIFY_storage_user_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "user"
+        }
+      ]
+    },
+    "AMPLIFY_storage_user_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "user"
+        }
+      ]
+    },
+    "AMPLIFY_storage_user_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "user"
+        }
+      ]
+    },
+    "AMPLIFY_storage_user_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "user"
+        }
+      ]
+    },
+    "AMPLIFY_storage_user_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "user"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "books": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "user": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "serviceType": "imported"
+    }
+  }
+}

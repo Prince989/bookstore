@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/books": {
+      "name": "/books",
+      "lambdaFunction": "BookInventoryHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
